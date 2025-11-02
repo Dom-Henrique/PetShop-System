@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=key" />
+</head>
+
+<body>
+    <main>
+        <h1>Log In</h1>
+        <form method="POST" class="sign_form">
+            <div class="email">
+                <label>E-mail:
+                    <input type="email" name="email" placeholder="E-mail">
+                    <i class="bx bxs-user"></i>
+                </label>
+            </div>
+            <div class="pasw">
+                <label>Password:
+                    <input type="password" name="pasw" placeholder="Password">
+                    <i class="bx bxs-lock-alt"></i> <!-- Depende de uma classe -->
+                </label>
+            </div>
+            <div class="boxes">
+                <label class="renenmber"><input type="checkbox" name="renemberme" id="renemberme">
+                    Renember me
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <div class="button">
+                <label>
+                    <input type="submit" value="Login" class="login_bt">
+                </label>
+
+                <a class="sign_bt" href="{{ url_for('register') }}">Sign Up</a>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
