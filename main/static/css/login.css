@@ -41,13 +41,21 @@ input::placeholder {
     font-family: "Momo Trust Display", sans-serif;
 }
 
+.login_bt:hover{
+    cursor: pointer;
+}
+
 .sign_bt{
     background-color: rgb(0, 206, 0);
     color: white;
+    text-decoration: none;
     padding: 1.0rem 2rem 1.0rem 2rem;
     text-align: center;
     font-family: "Momo Trust Display", sans-serif;
     border-radius: 16px;
+}
+
+.sign_bt:hover{
     text-decoration: none;
 }
 

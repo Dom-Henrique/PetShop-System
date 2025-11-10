@@ -66,10 +66,20 @@ input {
     font-family: "Momo Trust Display", sans-serif;
 }
 
-.buttons{
-    display: flex;
-    justify-content: center;
+.sign_bt:hover{
+    cursor: pointer;
+    padding: none;
 }
+
+.login_bt:hover{
+    padding: none;
+}
+
+.buttons{
+    display: block;
+    text-align: center;
+}
+
 
 #type_user{
     background-color: transparent;
