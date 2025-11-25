@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user
 from db import db
-from models import User
+from models import *
 
 app = Flask(__name__) # Serve para localizar o nome do arquivo
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///usersdata.db"
@@ -16,17 +16,21 @@ def user_loader(id): # Busca usuário pelo id
     user = db.session.query(User).filter_by(id=id).first()
     return user
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method=="GET":
         return render_template('signup.html')
     elif request.method=="POST":
         username = request.form['username']
         email = request.form['email']
-        password = request.form['pasw']
-        type_user = request.form['type_user']
+        password = request.form['password']
+        #type_user = request.form['type_user']
         
-        new_user = User(username=username, email=email, password=password, type_user=type_user)
+        new_user = User(username=username, email=email, password=password)
         db.session.add(new_user)
         db.session.commit()
         
@@ -40,26 +44,44 @@ def login():
         return render_template('login.html')
     elif request.method == "POST":
         email = request.form['email']
-        password = request.form['pasw']
+        password = request.form['password']
         
-        user_logged = db.session.query(User).filter_by(email=email, password=password).first()
-        if not user_logged:
+        user = db.session.query(User).filter_by(email=email, password=password).first()
+        if not user:
             return render_template('notlogged.html')
         
-        login_user(user_logged)
+        login_user(user)
         return redirect(url_for('home'))
 
-@app.route('/home')        
-def home():
-    return render_template('home.html')
-
-@app.route('/products')
+@app.route('/register_products', methods=['GET', 'POST'])
 def products():
-    return render_template('products.html')
-
-@app.route('/services')
+    if request.method=='GET':
+        return render_template('reg-prod.html')
+    elif request.method=='POST':
+        product_name = request.method['product_name']
+        product_desc = request.method['product_desc']
+        prod_category = request.method['category']
+        product_price = request.method['product-price']
+        quantity = request.method['quantity']
+        
+        new_product = Products(product_name=product_name, product_desc=product_desc, prod_category=prod_category, product_price=product_price, quantity=quantity)
+        db.session.add(new_product)
+        db.session.commit()
+        
+@app.route('/register_services', methods=['GET', 'POST'])
 def services():
-    return render_template('services.html')
+    if request.method=='GET':
+        return render_template('reg-serv.html')
+    elif request.method=='POST':
+        service_name = request.method['service_name']
+        service_desc = request.method['service_desc']
+        serv_category = request.method['category']
+        professional = request.method['professional']
+        service_price = request.method['service_price']
+        
+        new_service = Services(service_name=service_name, service_desc=service_desc, serv_category=serv_category, professional=professional, service_price=service_price)
+        db.session.add(new_service)
+        db.session.commit()
 
 if __name__ == "__main__":
     with app.app_context():
