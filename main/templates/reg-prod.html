@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar</title>
+    <link rel="stylesheet" href="../static/css/prod-serv.css">
+    <link rel="icon" type="image/x-icon" href="../static/images/Software Logo.png">
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar">
+            <div class="options">
+                <a href="#products" id="reg-prod">Cadastrar produtos</a>
+                <a href="#services" id="reg-serv">Cadastrar serviços</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <form class="products" action="GET, POST" id="products">
+            <section class="form">
+                <div class="prod-name">
+                    <label>Nome do produto</label>
+                    <input type="text" id="product_name" name="product_name">
+                </div>
+                <div class="prod-desc">
+                    <label>Descrição do produto</label>
+                    <textarea minlength="200px" id="product_desc" name="product_desc"></textarea>
+                </div>
+                <div class="category">
+                    <label for="">Categoria</label>
+                    <input type="search" id="category" name="category">
+                </div>
+                <div class="price">
+                    <label for="">Preço</label>
+                    <input type="number" inputmode="decimal" step="0.01" min="0.00" name="product-price">
+                </div>
+                <div class="quantity">
+                    <label for="">Quantidade</label>
+                    <input type="number" name="" id="" min="0" name="quantity">
+                </div>
+            </section>
+            <div class="send-bt">
+                <button>Cadastrar</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

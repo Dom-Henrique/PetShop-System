@@ -1,20 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PetShop | Home</title>
+    <title>PetSertão</title>
+    <link href="../static/css/home.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../static/images/Software Logo.png">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <a href="{{ url_for('home') }}">Home</a>
-            <a href="{{ url_for('products') }}">Products</a>
-            <a href="">Services</a>
+    <header class="header">
+        <nav class="nav-bar">
+            <img src="../static/images/Software Logo.png">
+            <div class="options">
+                <a href="{{ url_for('home') }}">Início</a>
+                <a href="{{ url_for('products') }}">Produtos</a>
+                <a href="{{ url_for('home') }}">Categorias</a>
+                <a href="{{ url_for('services') }}">Serviços</a>
+                <a href="">Nossos Profissionais</a>
+            </div>
+            <img src="../static/images/Users Icon.png">
         </nav>
     </header>
+    <main>
+        <section class="presentation">
+            <div class="banner1">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis adipisci quam quibusdam dolor at libero, cupiditate commodi omnis officia praesentium sit placeat nulla vero laborum doloribus obcaecati nisi accusamus officiis!</p>
+            </div>
+        </section>
+        <section class="product">
+            <figure>
+                <img src="https://preview.redd.it/ivan-drago-from-rocky-as-v0-ugy017ru6tdb1.jpg?width=574&format=pjpg&auto=webp&s=487e9a06dda7537d3c5073b3002d724b897440da" alt="">
+            </figure>
+            <div>
+                <h3>Mais que um petshop - uma missão de vida</h3>
+                <p>O PetSertão surgiu do carinho e compaixão por essas criaturinhas que infelizmente são maltratadas todos os dias por pessoas cruéis.<br>Nossa clínica busca ao máximo trazer conforto e aconchego</p>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
