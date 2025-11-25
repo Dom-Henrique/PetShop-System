@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(206, 235, 243);
+    color: black;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.nav-bar {
+    background-color: rgb(25, 89, 107);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.options {
+    width: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    justify-items: center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    transition: 0.4s;
+    text-align: center;
+}
+
+a:hover{
+    font-size: 2.1rem;
+    transition: 0.4s;
+    text-decoration: underline;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.products, .services{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    background-image: linear-gradient(-45deg, rgb(81, 181, 194), rgb(55, 117, 204));
+    border-radius: 2rem;
+    padding: 2rem;
+    color: white;
+}
+
+
+.products label, .services label{
+    margin-right: 1rem;
+}
+
+.products:target, .services:target{
+    visibility: visible;
+}
+
+input, textarea, select{
+    border-radius: 15px;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.158);
+    border: solid white 0.8px;
+    width: max-content;
+    color: white;
+    font-size: 2rem;
+}
+
+button{
+    border-radius: 15px;
+    padding: 0.5rem;
+    background-image: linear-gradient(45deg, green, rgb(0, 217, 0));
+    border: solid white 0.8px;
+    font-size: 2rem;
+    color: white;
+    padding: 1rem;
+    transition: 0.4s;
+}
+
+button:hover{
+    cursor: pointer;
+    font-size: 2.4rem;
+    transition: 0.4s;
+    background-image: linear-gradient(45deg, rgb(0, 96, 128), rgb(0, 163, 217));
+}

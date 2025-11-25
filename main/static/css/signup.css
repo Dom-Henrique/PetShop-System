@@ -64,15 +64,22 @@ input {
     border: none;
     border-radius: 16px;
     font-family: "Momo Trust Display", sans-serif;
+    transition: 0.2s;
 }
 
 .sign_bt:hover{
     cursor: pointer;
     padding: none;
+    background-color: white;
+    color: rgba(0, 206, 0);
+    transition: 0.2s;
 }
 
 .login_bt:hover{
     padding: none;
+    background-color: white;
+    color: rgba(0, 206, 0);
+    transition: 0.2s;
 }
 
 .buttons{
