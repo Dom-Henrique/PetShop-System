@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, login_user
+from sqlalchemy.exc import IntegrityError
 from db import db
 from models import *
 
@@ -16,7 +17,7 @@ def user_loader(id): # Busca usuário pelo id
     user = db.session.query(User).filter_by(id=id).first()
     return user
 
-@app.route('/')
+@app.route('/home')
 def home():
     return render_template('home.html')
 
@@ -27,18 +28,21 @@ def register():
     elif request.method=="POST":
         username = request.form['username']
         email = request.form['email']
-        password = request.form['password']
-        #type_user = request.form['type_user']
+        password = request.form['pasw']
+        type_user = request.form['type_user']
         
-        new_user = User(username=username, email=email, password=password)
-        db.session.add(new_user)
-        db.session.commit()
+        new_user = User(username=username, email=email, password=password, type_user=type_user)
+        try:
+            db.session.add(new_user)
+            db.session.commit()
+        except IntegrityError:
+            return render_template('error.html')
         
         login_user(new_user)
         
         return redirect(url_for('home'))
 
-@app.route('/login', methods=['GET', 'POST']) # methods servem para informar ao navegador quais tipos de atividades devem ser feitas com os dados enviados.
+@app.route('/', methods=['GET', 'POST']) # methods servem para informar ao navegador quais tipos de atividades devem ser feitas com os dados enviados.
 def login():
     if request.method == "GET":
         return render_template('login.html')
@@ -54,9 +58,9 @@ def login():
         return redirect(url_for('home'))
 
 @app.route('/register_products', methods=['GET', 'POST'])
-def products():
+def reg_products():
     if request.method=='GET':
-        return render_template('reg-prod.html')
+        return render_template('adm_pages/reg-prod.html')
     elif request.method=='POST':
         product_name = request.method['product_name']
         product_desc = request.method['product_desc']
@@ -69,9 +73,9 @@ def products():
         db.session.commit()
         
 @app.route('/register_services', methods=['GET', 'POST'])
-def services():
+def reg_services():
     if request.method=='GET':
-        return render_template('reg-serv.html')
+        return render_template('adm_pages/reg-serv.html')
     elif request.method=='POST':
         service_name = request.method['service_name']
         service_desc = request.method['service_desc']
@@ -82,6 +86,14 @@ def services():
         new_service = Services(service_name=service_name, service_desc=service_desc, serv_category=serv_category, professional=professional, service_price=service_price)
         db.session.add(new_service)
         db.session.commit()
+
+@app.route('/products')
+def products():
+    return render_template('products.html')
+
+@app.route('/services')
+def services():
+    return render_template('services.html')
 
 if __name__ == "__main__":
     with app.app_context():
