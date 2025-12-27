@@ -12,22 +12,20 @@
 <body>
     <header class="header">
         <nav class="nav-bar">
-            <img src="../static/images/Software Logo.png">
-            <div class="options">
-                <a href="{{ url_for('home') }}">Início</a>
-                <a href="{{ url_for('products') }}">Produtos</a>
-                <a href="{{ url_for('home') }}">Categorias</a>
-                <a href="{{ url_for('services') }}">Serviços</a>
-                <a href="">Nossos Profissionais</a>
-            </div>
-            <img src="../static/images/Users Icon.png">
+            <button><img src="../static/images/Software Logo.png"></button>
+            <ul class="options">
+                <li><a href="{{ url_for('home') }}">Início</a></li>
+                <li><a href="{{ url_for('products') }}">Produtos</a></li>
+                <li><a href="{{ url_for('home') }}">Categorias</a></li>
+                <li><a href="{{ url_for('services') }}">Serviços</a></li>
+                <li><a href="">Nossos Profissionais</a></li>
+            </ul>
+            <button><img src="../static/images/Users Icon.png"></button>
         </nav>
     </header>
     <main>
         <section class="presentation">
-            <div class="banner1">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis adipisci quam quibusdam dolor at libero, cupiditate commodi omnis officia praesentium sit placeat nulla vero laborum doloribus obcaecati nisi accusamus officiis!</p>
-            </div>
+            <img src="" alt="" class="banner1">
         </section>
         <section class="product">
             <figure>
