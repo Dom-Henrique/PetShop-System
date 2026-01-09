@@ -19,7 +19,7 @@
         </nav>
     </header>
     <main>
-        <form class="services" action="GET, POST" id="services">
+        <form class="services" method="POST" id="services">
             <section class="form">
                 <div class="serv-name">
                     <label>Nome do serviço</label>
@@ -36,7 +36,9 @@
                 <div class="professional">
                     <label for="">Profissional</label>
                     <select name="professional" id="professional">
-                        <option value=""></option>
+                        { % for prof in professionals % }
+                            <option value="{{ prof_id }}">{{prof_name}}</option>
+                        { % endfor % }
                     </select>
                 </div>
                 <div class="price">
