@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="../static/css/signup.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>Sign Up | PetShop</title>
 </head>
 
@@ -13,23 +14,27 @@
     <main>
         <h1>Sign Up</h1>
         <form method="POST" class="signup">
+            <div class="name">
+                <label><input type="text" name="firstName" placeholder="First Name"></label>
+                <label><input type="text" name="lastName" placeholder="Last Name"></label>
+            </div>
             <div class="username">
-                <label>Username:
+                <label>
                     <input type="text" name="username" placeholder="Username">
                 </label>
                 <i class="bx bxs-user"></i>
             </div>
             <div class="email">
-                <label>E-mail:
-                    <input type="email" name="email" placeholder="E-mail">
+                <label>
+                    <input type="email" name="email" placeholder="E-mail" onchange="validateFields()">
                 </label>
                 <i class="bx bxs-user"></i>
             </div>
             <div class="password">
-                <label>Password:
-                    <input type="password" name="pasw" placeholder="Password">
+                <label>
+                    <input type="password" name="password" placeholder="Password" onchange="validateFields()">
+                    <button type="button" id="showPass"><i class="bi bi-eye-fill"></i></button>
                 </label>
-                <i class="bx bxs-lock-alt"></i>
             </div>
             <select name="type_user" id="" class="type_user">
                 <option value="1">Administrador</option>
@@ -37,13 +42,14 @@
             </select>
             <div class="buttons">
                 <label>
-                    <input type="submit" name="signup" class="sign_bt" value="Sign Up">
+                    <button type="submit" disabled="true" class="sign_bt">Criar conta</button>
                 </label>
                 <a href="{{ url_for('login') }}" class="login_bt">Login</a>
             </div>
-            
         </form>
     </main>
 </body>
+<script src="../static/js/signVerify.js"></script>
+<script src="../static/js/showPass.js"></script>
 
 </html>
